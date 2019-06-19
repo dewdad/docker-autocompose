@@ -30,6 +30,20 @@ While experimenting with various docker containers from the Hub, I realized that
 
 With this tool, I can easily generate docker-compose files for managing the containers that I've set up manually.
 
+## Run for all containers
+
+These commands will generate the docker-componse.yml for all running containers.
+
+```bash
+docker ps -q | xargs sudo python autocompose.py
+```
+
+or when running in docker.
+
+```bash
+docker ps -q | xargs docker run --rm -v /var/run/docker.sock:/var/run/docker.sock red5d/docker-autocompose
+```
+
 ## Docker Usage
 
 You can use this tool from a docker container without installing it locally by either building it or using the [automated build on dockerhub.](https://hub.docker.com/r/red5d/docker-autocompose/)
